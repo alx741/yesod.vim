@@ -13,7 +13,7 @@ if !exists("g:yesod_disable_map")
     let g:yesod_disable_map = 0
 endif
 
-command YesodAddHandler execute "call yesod#YesodAddHandler()"
+command! YesodAddHandler execute "call yesod#YesodAddHandler()"
 setlocal commentstring=--\ %s
 
 function! yesod#GetYesodCommand()
