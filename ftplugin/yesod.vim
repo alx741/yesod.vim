@@ -82,7 +82,7 @@ function! yesod#YesodAddHandler()
 
     if v:shell_error
         execute 'redraw!'
-        echomsg "Yesod: This route may already exist"
+        echomsg "Yesod: This route is malformed or it may already exist"
         return
     else
         silent! execute "edit"
