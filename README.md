@@ -9,7 +9,7 @@ Vim plugin for the Haskell [Yesod web framework](http://www.yesodweb.com/).
 * Jump to handler files from declared routes
 * Create new handlers for routes under the cursor while in `config/routes`
 
-*Note:* This plugin *does not* add syntax for *shakesperean templates*, there is
+**Note:** This plugin *does not* add syntax for *shakesperean templates*, there is
 another plugin that does:
 [vim-syntax-shakespeare](https://github.com/pbrisbin/vim-syntax-shakespeare).
 
@@ -21,22 +21,16 @@ Compatible with `Vundle`, `Pathogen`, `Vim-plug`.
 
 ## Usage
 
-### Jumping to handlers
+*vim-yesod* gives you some predefined mappings.
 
-While editing `config/routes` you can use the predefined `gh` map to
-jump to the handler file of the corresponding resource.
+For the `config/routes` file:
 
-Or you can directly use the `:YesodOpenHandler` command while on top of the
-desired route line.
+Map | Command | Action
+--- | ------- | ------
 
-### Adding new handlers
+**gh** | :YesodOpenHandler | Jump to the handler of the route under the cursor
 
-While editing `config/routes` you can use the predefined `gH` map to
-automatically create a new handler module for the route under the cursor; it
-will also add it to the *cabal* and *Application.hs* files as well.
-
-Or you can directly use the `:YesodAddHandler` command while on top of the
-desired route line.
+**gH** | :YesodAddHandler | Create a new handler for the route under the cursor
 
 
 ## Configuration
