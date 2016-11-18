@@ -13,6 +13,7 @@ if !exists("g:yesod_disable_map")
     let g:yesod_disable_map = 0
 endif
 
+command YesodAddHandler execute "call yesod#YesodAddHandler()"
 setlocal commentstring=--\ %s
 
 function! yesod#GetYesodCommand()
@@ -62,7 +63,7 @@ function! yesod#GetYesodCommand()
 endfunction
 
 
-function! YesodAddHandler()
+function! yesod#YesodAddHandler()
     let l:winview = winsaveview()
 
     if !executable("yesod")
@@ -93,6 +94,7 @@ function! YesodAddHandler()
     call winrestview(l:winview)
 endfunction
 
+
 if exists("g:yesod_disable_map") && g:yesod_disable_map == 0
-    nnoremap gh :call YesodAddHandler()<CR>
+    nnoremap gH :YesodAddHandler<CR>
 endif
