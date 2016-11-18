@@ -9,12 +9,55 @@ if exists("b:did_ftplugin")
 endif
 let b:did_ftplugin = 1
 
-if !exists("g:yesod_disable_map")
-    let g:yesod_disable_map = 0
+if !exists("g:yesod_disable_maps")
+    let g:yesod_disable_maps = 0
 endif
 
-command! YesodAddHandler execute "call yesod#YesodAddHandler()"
+
+command! YesodAddHandler execute "call yesod#AddHandler()"
+command! YesodOpenHandler execute "call yesod#OpenHandler()"
 setlocal commentstring=--\ %s
+
+
+function! yesod#OpenHandler()
+    let s:route_line = getline('.')
+    let s:route_route = matchstr(s:route_line, '\v\zs[A-Z]+[a-zA-Z]\zeR')
+    let s:handler = expand("%:p:h") . "/../Handler/" . s:route_route . ".hs"
+    execute "edit! " . s:handler
+endfunction
+
+
+function! yesod#AddHandler()
+    let l:winview = winsaveview()
+
+    if !executable("yesod")
+        echomsg "Yesod executable not found in $PATH, did you installed it?
+                    \ (stack install yesod-bin)"
+        return
+    endif
+
+    let s:yesod_cmd = yesod#GetYesodCommand()
+    if s:yesod_cmd ==? ""
+        return
+    endif
+
+    silent! execute "write"
+    silent! silent execute "!" . s:yesod_cmd
+
+    if v:shell_error
+        execute 'redraw!'
+        echomsg "Yesod: This route is malformed or it may already exist"
+        return
+    else
+        silent! execute "edit"
+        silent! execute "normal Gdd"
+        silent! execute "write"
+    endif
+
+    execute 'redraw!'
+    call winrestview(l:winview)
+endfunction
+
 
 function! yesod#GetYesodCommand()
     let s:route_line = getline('.')
@@ -63,38 +106,7 @@ function! yesod#GetYesodCommand()
 endfunction
 
 
-function! yesod#YesodAddHandler()
-    let l:winview = winsaveview()
-
-    if !executable("yesod")
-        echomsg "Yesod executable not found in $PATH, did you installed it?
-                    \ (stack install yesod-bin)"
-        return
-    endif
-
-    let s:yesod_cmd = yesod#GetYesodCommand()
-    if s:yesod_cmd ==? ""
-        return
-    endif
-
-    silent! execute "write"
-    silent! silent execute "!" . s:yesod_cmd
-
-    if v:shell_error
-        execute 'redraw!'
-        echomsg "Yesod: This route is malformed or it may already exist"
-        return
-    else
-        silent! execute "edit"
-        silent! execute "normal Gdd"
-        silent! execute "write"
-    endif
-
-    execute 'redraw!'
-    call winrestview(l:winview)
-endfunction
-
-
-if exists("g:yesod_disable_map") && g:yesod_disable_map == 0
-    nnoremap gH :YesodAddHandler<CR>
+if exists("g:yesod_disable_maps") && g:yesod_disable_maps == 0
+    nnoremap <buffer> gH :YesodAddHandler<CR>
+    nnoremap <buffer> gh :YesodOpenHandler<CR>
 endif
