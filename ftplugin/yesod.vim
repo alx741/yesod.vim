@@ -23,7 +23,12 @@ function! yesod#OpenHandler()
     let s:route_line = getline('.')
     let s:route_route = matchstr(s:route_line, '\v\zs[A-Z]+[a-zA-Z]\zeR')
     let s:handler = expand("%:p:h") . "/../Handler/" . s:route_route . ".hs"
-    execute "edit! " . s:handler
+
+    if filereadable(s:handler)
+        execute "edit! " . s:handler
+    else
+        echom "The handler file for " . s:route_route . "R does not exist"
+    endif
 endfunction
 
 
