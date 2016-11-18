@@ -12,7 +12,7 @@ let b:did_ftplugin = 1
 setlocal commentstring=--\ %s
 
 
-function! yesod#Route()
+function! yesod#GetYesodCommand()
     let s:route_line = getline('.')
 
     " Match pattern and route identifier
@@ -21,7 +21,7 @@ function! yesod#Route()
 
     if empty(s:route_pattern) || empty(s:route_route)
         echom "There is no route here!"
-        return
+        return ""
     endif
 
 
@@ -34,7 +34,7 @@ function! yesod#Route()
     if (s:route_have_get == -1) && (s:route_have_post == -1)
         \ && (s:route_have_put == -1) && (s:route_have_delete == -1)
         echom "There are no methods for this route!"
-        return
+        return ""
     endif
 
 
@@ -55,7 +55,39 @@ function! yesod#Route()
         let s:yesod_cmd = s:yesod_cmd . " -m 'DELETE'"
     endif
 
-    echom s:yesod_cmd
+    return s:yesod_cmd
+endfunction
+
+
+function! YesodAddHandler()
+    let l:winview = winsaveview()
+
+    if !executable("yesod")
+        echomsg "Yesod executable not found in $PATH, did you installed it?
+                    \ (stack install yesod-bin)"
+        return
+    endif
+
+    let s:yesod_cmd = yesod#GetYesodCommand()
+    if s:yesod_cmd ==? ""
+        return
+    endif
+
+    silent! execute "write"
+    silent! silent execute "!" . s:yesod_cmd
+
+    if v:shell_error
+        execute 'redraw!'
+        echomsg "Yesod: This route may already exist"
+        return
+    else
+        silent! execute "edit"
+        silent! execute "normal Gdd"
+        silent! execute "write"
+    endif
+
+    execute 'redraw!'
+    call winrestview(l:winview)
 endfunction
 
 nnoremap gh :call Route()<CR>
