@@ -27,9 +27,7 @@ For the `config/routes` file:
 
 Map | Command | Action
 --- | ------- | ------
-
 **gh** | :YesodOpenHandler | Jump to the handler of the route under the cursor
-
 **gH** | :YesodAddHandler | Create a new handler for the route under the cursor
 
 
