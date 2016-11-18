@@ -39,8 +39,8 @@ function! yesod#Route()
 
 
     " Compose yesod command
-    let s:yesod_cmd = "yesod -p '" . s:route_pattern . "'"
-                        \ . " -r '" . s:route_route . "'"
+    let s:yesod_cmd = "yesod add-handler -p '" . s:route_pattern . "'"
+                                    \ . " -r '" . s:route_route . "'"
 
     if s:route_have_get != -1
         let s:yesod_cmd = s:yesod_cmd . " -m 'GET'"
