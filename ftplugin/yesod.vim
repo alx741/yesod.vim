@@ -9,8 +9,11 @@ if exists("b:did_ftplugin")
 endif
 let b:did_ftplugin = 1
 
-setlocal commentstring=--\ %s
+if !exists("g:yesod_disable_map")
+    let g:yesod_disable_map = 0
+endif
 
+setlocal commentstring=--\ %s
 
 function! yesod#GetYesodCommand()
     let s:route_line = getline('.')
@@ -90,4 +93,6 @@ function! YesodAddHandler()
     call winrestview(l:winview)
 endfunction
 
-nnoremap gh :call Route()<CR>
+if exists("g:yesod_disable_map") && g:yesod_disable_map == 0
+    nnoremap gh :call YesodAddHandler()<CR>
+endif
