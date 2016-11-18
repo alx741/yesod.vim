@@ -28,18 +28,18 @@ syn match yesodModelsEntity "\v^[A-Z]\S*"
 syn match yesodModelsField "\v^\s+\zs[a-z][a-zA-Z]\S*\ze"
 syn match yesodModelsFieldUnique "\v^\s+\zsUnique[A-Z]{1}[a-z]+[a-zA-Z]\S*\ze"
 
+" Common
+syn match haskellComment "---*\([^-!#$%&\*\+./<=>\?@\\^|~].*\)\?$"
 
 
-" Routes
 highlight def link yesodRoutesMethod Keyword
 highlight def link yesodRoutesRoute String
 highlight def link yesodRoutesResource Identifier
-
-" Models
 highlight def link yesodModelsKeywords Keyword
 highlight def link yesodModelsTypes Type
 highlight def link yesodModelsEntity Macro
 highlight def link yesodModelsField Identifier
 highlight def link yesodModelsFieldUnique Conditional
+highlight def link haskellComment Comment
 
 let b:current_syntax = "yesod"
