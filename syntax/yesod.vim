@@ -12,7 +12,7 @@ endif
 
 
 " Routes
-syn keyword yesodRoutesMethod GET POST
+syn keyword yesodRoutesMethod GET POST PUT DELETE
 syn match yesodRoutesRoute "\v\/[A-Za-z/.]*"
 syn match yesodRoutesResource "\v[A-Z]{1}.*R"
 
