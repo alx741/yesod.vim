@@ -5,7 +5,9 @@ Vim plugin for the Haskell [Yesod web framework](http://www.yesodweb.com/).
 ![Yesod](yesod_logo.png)
 
 
-* Syntax for `config/models` and `config/routes`
+* Syntax for `config/models`
+* Syntax for `config/routes`
+* Syntax for i18n `messages`
 * Jump to handler files from declared routes
 * Create new handlers for routes under the cursor while in `config/routes`
 
