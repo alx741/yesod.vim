@@ -30,14 +30,14 @@ Map | Command | Action
 --- | ------- | ------
 **gh** | :YesodOpenHandler | Jump to the handler of the route under the cursor
 **gH** | :YesodAddHandler | Create a new handler for the route under the cursor
-**gl** | :YesodOpenMessage | Jump to or create the i18n message under the cursor
+**gm** | :YesodOpenMessage | Jump to or create the i18n message under the cursor
 
 
 ## Configuration
 
 ### Mappings
 
-You can disable the predefined `gH` and `gh` mappings with:
+You can disable the predefined mappings with:
 
     let g:yesod_disable_maps = 1
 
@@ -45,7 +45,7 @@ And then add your own like:
 
     nnoremap <leader>H :YesodAddHandler<CR>
     nnoremap <leader>h :YesodOpenHandler<CR>
-    nnoremap <leader>l :YesodOpenMessage<CR>
+    nnoremap <leader>m :YesodOpenMessage<CR>
 
 ### Handlers location
 

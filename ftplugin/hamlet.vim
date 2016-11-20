@@ -61,5 +61,5 @@ endfunction
 
 
 if exists("g:yesod_disable_maps") && g:yesod_disable_maps == 0
-    nnoremap <buffer> gl :YesodOpenMessage<CR>
+    nnoremap <buffer> gm :YesodOpenMessage<CR>
 endif
