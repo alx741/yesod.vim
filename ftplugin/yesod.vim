@@ -21,13 +21,13 @@ setlocal commentstring=--\ %s
 
 function! yesod#OpenHandler()
     let s:route_line = getline('.')
-    let s:route_route = matchstr(s:route_line, '\C\zs[A-Z]\{1\}[a-zA-Z0-9]*\zeR')
-    let s:handler = expand("%:p:h") . "/../Handler/" . s:route_route . ".hs"
+    let s:route_resource = matchstr(s:route_line, '\C\zs[A-Z]\{1\}[a-zA-Z0-9]*\zeR')
+    let s:handler = expand("%:p:h") . "/../Handler/" . s:route_resource . ".hs"
 
     if filereadable(s:handler)
         execute "edit! " . s:handler
     else
-        echom "The handler file for " . s:route_route . "R does not exist"
+        echom "The handler file for " . s:route_resource . "R does not exist"
     endif
 endfunction
 
@@ -68,10 +68,10 @@ function! yesod#GetYesodCommand()
     let s:route_line = getline('.')
 
     " Match pattern and route identifier
-    let s:route_pattern = matchstr(s:route_line, '\C^\/[a-zA-Z0-9#*+/.]*')
-    let s:route_route = matchstr(s:route_line, '\C\zs[A-Z]\{1\}[a-zA-Z0-9]*\zeR')
+    let s:route_pattern = matchstr(s:route_line, '\C^\/[a-zA-Z0-9#*+/.-]*')
+    let s:route_resource = matchstr(s:route_line, '\C\zs[A-Z]\{1\}[a-zA-Z0-9]*\zeR')
 
-    if empty(s:route_pattern) || empty(s:route_route)
+    if empty(s:route_pattern) || empty(s:route_resource)
         echom "There is no route here!"
         return ""
     endif
@@ -92,7 +92,7 @@ function! yesod#GetYesodCommand()
 
     " Compose yesod command
     let s:yesod_cmd = "yesod add-handler -p '" . s:route_pattern . "'"
-                                    \ . " -r '" . s:route_route . "'"
+                                    \ . " -r '" . s:route_resource . "'"
 
     if s:route_have_get != -1
         let s:yesod_cmd = s:yesod_cmd . " -m 'GET'"
