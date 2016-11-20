@@ -33,6 +33,8 @@ Map | Command | Action
 
 ## Configuration
 
+### Mappings
+
 You can disable the predefined `gH` and `gh` mappings with:
 
     let g:yesod_disable_maps = 1
@@ -41,6 +43,14 @@ And then add your own like:
 
     nnoremap <leader>H :YesodAddHandler<CR>
     nnoremap <leader>h :YesodOpenHandler<CR>
+
+### Handlers location
+
+The Yesod default location for handlers is `Handler` in the project root. If you
+keep your handlers in a different location, lets say for instance:
+`src/Handler`, you can configure it like:
+
+    let g:yesod_handlers_path = "src/Handler"
 
 
 ### Screenshots

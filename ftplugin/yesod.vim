@@ -13,6 +13,11 @@ if !exists("g:yesod_disable_maps")
     let g:yesod_disable_maps = 0
 endif
 
+if !exists("g:yesod_handlers_path")
+    let g:yesod_handlers_path = "Handler"
+endif
+
+
 
 command! YesodAddHandler execute "call yesod#AddHandler()"
 command! YesodOpenHandler execute "call yesod#OpenHandler()"
@@ -28,7 +33,8 @@ function! yesod#OpenHandler()
         return ""
     endif
 
-    let s:handler = expand("%:p:h") . "/../Handler/" . s:route_resource . ".hs"
+    let s:handler = expand("%:p:h") . "/../" . g:yesod_handlers_path .
+                                    \ "/" . s:route_resource . ".hs"
 
     if filereadable(s:handler)
         execute "edit! " . s:handler
