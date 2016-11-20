@@ -13,3 +13,5 @@
 /searchThing/#id SearchR GET
 
 /some-route SomeRouteR POST
+
+/noResource/here NoResourceHere POST

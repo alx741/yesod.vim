@@ -13,8 +13,8 @@ endif
 
 " Routes
 syn keyword yesodRoutesMethod GET POST PUT DELETE
-syn match yesodRoutesRoute "\v\/[A-Za-z0-9#*+/.-]*"
-syn match yesodRoutesResource "\v[A-Z]{1}.*R"
+syn match yesodRoutesRoute "\C\v\/[A-Za-z0-9#*+/.-]*"
+syn match yesodRoutesResource "\C\v[A-Z]{1}.*R "
 
 
 " Models
@@ -22,11 +22,11 @@ syn keyword yesodModelsKeywords json deriving
 
 syn keyword yesodModelsTypes Maybe Int Float Integer Text String
 syn keyword yesodModelsTypes Typeable Eq Show
-syn match yesodModelsTypes "\v[A-Z]+[a-zA-Z]*Id"
+syn match yesodModelsTypes "\C\v[A-Z]+[a-zA-Z]*Id"
 
-syn match yesodModelsEntity "\v^[A-Z]\S*"
-syn match yesodModelsField "\v^\s+\zs[a-z][a-zA-Z]\S*\ze"
-syn match yesodModelsFieldUnique "\v^\s+\zsUnique[A-Z]{1}[a-z]+[a-zA-Z]\S*\ze"
+syn match yesodModelsEntity "\C\v^[A-Z]\S*"
+syn match yesodModelsField "\C\v^\s+\zs[a-z][a-zA-Z]\S*\ze"
+syn match yesodModelsFieldUnique "\C\v^\s+\zsUnique[A-Z]{1}[a-z]+[a-zA-Z]\S*\ze"
 
 " Common
 syn match haskellComment "---*\([^-!#$%&\*\+./<=>\?@\\^|~].*\)\?$"
