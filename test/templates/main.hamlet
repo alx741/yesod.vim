@@ -1,0 +1,15 @@
+<h1>_{MsgHello}
+<h2>_{MsgWelcome}
+
+<p>
+_{MsgSayAge}, _{MsgItemCount}
+
+This will not exist _{MsgNotExists}
+<p>
+
+<form>
+    <input type=text value=_{MsgSelectItem}
+
+<ul>
+    <li>
+        _{MsgItemCount}
