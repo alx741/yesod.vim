@@ -9,10 +9,11 @@ Vim plugin for the Haskell [Yesod web framework](http://www.yesodweb.com/).
 * Syntax for `config/routes`
 * Syntax for i18n `messages`
 * Jump to handler files from declared routes
+* Jump to and Create i18n messages
 * Create new handlers for routes under the cursor while in `config/routes`
 
-**Note:** This plugin *does not* add syntax for *shakesperean templates*, there is
-another plugin that does:
+**Note:** This plugin *does not* add syntax for *shakesperean templates*, there
+is another plugin that does:
 [vim-syntax-shakespeare](https://github.com/pbrisbin/vim-syntax-shakespeare).
 
 
@@ -53,6 +54,16 @@ keep your handlers in a different location, lets say for instance:
 `src/Handler`, you can configure it like:
 
     let g:yesod_handlers_path = "src/Handler"
+
+### i18n Messages
+
+Default i18n language to use:
+
+    let g:yesod_messages_default_lang = "en"
+
+Messages directory:
+
+    let g:yesod_messages_path = "messages"
 
 
 ### Screenshots
