@@ -7,7 +7,7 @@ Vim plugin for the Haskell [Yesod web framework](http://www.yesodweb.com/).
 
 * Syntax for `config/models`
 * Syntax for `config/routes`
-* Syntax for i18n `messages`
+* Syntax for i18n `messages/`
 * Jump to handler files from declared routes
 * Jump to and Create i18n messages
 * Create new handlers for routes under the cursor while in `config/routes`
@@ -24,14 +24,13 @@ Compatible with `Vundle`, `Pathogen`, `Vim-plug`.
 
 ## Usage
 
-*vim-yesod* gives you some predefined mappings.
-
-For the `config/routes` file:
+*vim-yesod* gives you some predefined mappings:
 
 Map | Command | Action
 --- | ------- | ------
 **gh** | :YesodOpenHandler | Jump to the handler of the route under the cursor
 **gH** | :YesodAddHandler | Create a new handler for the route under the cursor
+**gl** | :YesodOpenMessage | Jump to or create the i18n message under the cursor
 
 
 ## Configuration
@@ -46,6 +45,7 @@ And then add your own like:
 
     nnoremap <leader>H :YesodAddHandler<CR>
     nnoremap <leader>h :YesodOpenHandler<CR>
+    nnoremap <leader>l :YesodOpenMessage<CR>
 
 ### Handlers location
 
