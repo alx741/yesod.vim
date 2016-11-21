@@ -2,10 +2,10 @@
 " Language:             Haskell Yesod web framework
 " Maintainer:           Daniel Campoverde <alx@rsillybytes.net>
 " License:              Vim (see :h license)
-" Repository:		    https://github.com/alx741/vim-yesod
+" Repository:           https://github.com/alx741/vim-yesod
 
 if exists("b:did_ftplugin")
-	finish
+    finish
 endif
 let b:did_ftplugin = 1
 
@@ -37,13 +37,13 @@ function! yesod#OpenHandler()
 
     try
         execute "lvimgrep /" . s:route_resource_function . "/ " .
-                \ expand("%:p:h") . "/../" . g:yesod_handlers_path . "/**/*"
+                    \ expand("%:p:h") . "/../" . g:yesod_handlers_path . "/**/*"
         let success=1
     catch /*/
     finally
         if !exists('success')
             let s:prompt = input("The resource handler for " .
-                                \ s:route_resource .
+                                \ s:route_resource  .
                                 \ "R does not exist. Create it? [y/N]  ")
 
             if s:prompt ==? "y"
