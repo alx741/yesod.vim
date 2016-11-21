@@ -34,8 +34,26 @@ function! yesod#OpenHandler()
     endif
 
     let s:route_resource_function = s:route_resource . "R *::"
-    execute "lvimgrep /" . s:route_resource_function . "/ " .
+
+    try
+        execute "lvimgrep /" . s:route_resource_function . "/ " .
                 \ g:yesod_handlers_path . "/*"
+        let success=1
+    catch /*/
+    finally
+        if !exists('success')
+            let s:prompt = input("The resource handler for " .
+                                \ s:route_resource .
+                                \ "R does not exist. Create it? [y/N]  ")
+
+            if s:prompt ==? "y"
+                call yesod#AddHandler()
+                call yesod#OpenHandler()
+            else
+                return ""
+            endif
+        endif
+    endtry
 endfunction
 
 
