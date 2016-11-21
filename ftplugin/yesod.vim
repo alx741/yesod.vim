@@ -37,7 +37,7 @@ function! yesod#OpenHandler()
 
     try
         execute "lvimgrep /" . s:route_resource_function . "/ " .
-                \ g:yesod_handlers_path . "/*"
+                \ g:yesod_handlers_path . "/**/*"
         let success=1
     catch /*/
     finally

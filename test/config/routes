@@ -15,3 +15,5 @@
 /some-route SomeRouteR POST
 
 /noResource/here NoResourceHere POST
+
+/recursive/handlers RecursiveHandlerR GET POST PUT

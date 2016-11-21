@@ -47,13 +47,15 @@ And then add your own like:
     nnoremap <leader>h :YesodOpenHandler<CR>
     nnoremap <leader>m :YesodOpenMessage<CR>
 
-### Handlers location
+### Handlers
 
 The Yesod default location for handlers is `Handler` in the project root. If you
 keep your handlers in a different location, lets say for instance:
 `src/Handler`, you can configure it like:
 
     let g:yesod_handlers_path = "src/Handler"
+
+The Handlers directory you define will be searched recursively.
 
 ### i18n Messages
 
@@ -66,7 +68,7 @@ Messages directory:
     let g:yesod_messages_path = "messages"
 
 
-### Screenshots
+## Screenshots
 
 `config/models` and `config/routes` files:
 
