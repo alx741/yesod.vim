@@ -33,14 +33,9 @@ function! yesod#OpenHandler()
         return ""
     endif
 
-    let s:handler = expand("%:p:h") . "/../" . g:yesod_handlers_path .
-                                    \ "/" . s:route_resource . ".hs"
-
-    if filereadable(s:handler)
-        execute "edit! " . s:handler
-    else
-        echom "The handler file for " . s:route_resource . "R does not exist"
-    endif
+    let s:route_resource_function = s:route_resource . "R *::"
+    execute "lvimgrep /" . s:route_resource_function . "/ " .
+                \ g:yesod_handlers_path . "/*"
 endfunction
 
 
