@@ -17,3 +17,5 @@
 /noResource/here NoResourceHere POST
 
 /recursive/handlers RecursiveHandlerR GET POST PUT
+
+/test TestR GET

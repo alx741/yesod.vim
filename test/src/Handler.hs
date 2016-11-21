@@ -8,3 +8,6 @@ postRecursiveHandlerR = undefined
 
 putRecursiveHandlerR :: Handler Html
 putRecursiveHandlerR = undefined
+
+getTestR :: Handler Html
+getTestR = undefined
