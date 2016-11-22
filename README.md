@@ -39,13 +39,17 @@ Map | Command | Action
 
 You can disable the predefined mappings with:
 
-    let g:yesod_disable_maps = 1
+```vim
+let g:yesod_disable_maps = 1
+```
 
 And then add your own like:
 
-    nnoremap <leader>H :YesodAddHandler<CR>
-    nnoremap <leader>h :YesodOpenHandler<CR>
-    nnoremap <leader>m :YesodOpenMessage<CR>
+```vim
+nnoremap <leader>H :YesodAddHandler<CR>
+nnoremap <leader>h :YesodOpenHandler<CR>
+nnoremap <leader>m :YesodOpenMessage<CR>
+```
 
 ### Handlers
 
@@ -53,7 +57,9 @@ The Yesod default location for handlers is `Handler` in the project root. If you
 keep your handlers in a different location, lets say for instance:
 `src/Handler`, you can configure it like:
 
-    let g:yesod_handlers_path = "src/Handler"
+```vim
+let g:yesod_handlers_path = "src/Handler"
+```
 
 The Handlers directory you define will be searched recursively.
 
@@ -61,11 +67,15 @@ The Handlers directory you define will be searched recursively.
 
 Default i18n language to use:
 
-    let g:yesod_messages_default_lang = "en"
+```vim
+let g:yesod_messages_default_lang = "en"
+```
 
 Messages directory:
 
-    let g:yesod_messages_path = "messages"
+```vim
+let g:yesod_messages_path = "messages"
+```
 
 
 ## Screenshots
