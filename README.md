@@ -54,14 +54,14 @@ nnoremap <leader>m :YesodOpenMessage<CR>
 ### Handlers
 
 The Yesod default location for handlers is `Handler` in the project root. If you
-keep your handlers in a different location, lets say for instance:
-`src/Handler`, you can configure it like:
+keep your handlers in more than one directory, lets say for instance:
+`src/` and `moreHandlers/`, you can configure it like:
 
 ```vim
-let g:yesod_handlers_path = "src/Handler"
+let g:yesod_handlers_directories = ['Handler', 'src', 'moreHandlers']
 ```
 
-The Handlers directory you define will be searched recursively.
+The Handlers directories you define will be searched recursively.
 
 ### i18n Messages
 
