@@ -33,6 +33,28 @@ Map | Command | Action
 **gm** | :YesodOpenMessage | Jump to or create the i18n message under the cursor
 
 
+### Open Handler `gh`
+
+Will jump to the first handler found and fill the location list with each http
+method available for that handler, so you can jump between them with `:lnext`
+and `:lprev`.
+
+*Note*: If your using a `Vim version <= 7.4.1800`, the quickfix list will be
+used instead (because of a nasty bug in Vim before that version), in which case
+you use `:cnext` and `:cprev`.
+
+### Create Handler `gH`
+
+This will use `yesod-bin` so be sure you have it installed.
+
+If your project directory structure is not the scaffolding default, this may not
+work!
+
+### Open i18n Message `gm`
+
+Will always take you to the message for the default language.
+
+
 ## Configuration
 
 ### Mappings
