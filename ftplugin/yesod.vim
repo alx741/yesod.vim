@@ -38,7 +38,6 @@ function! yesod#OpenHandler()
                 return ""
             endif
         else
-            echom dir . " does not exists in the project root!"
             continue
         endif
     endfor
