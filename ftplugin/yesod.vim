@@ -58,7 +58,12 @@ function! yesod#OpenHandlerTryDir(directory, route_resource)
     let s:route_resource_function = a:route_resource . "R *::"
 
     try
-        execute "lvimgrep /" . s:route_resource_function . "/ " .
+        if has("patch-7.4.1800")
+            let s:use_grep = "lvimgrep"
+        else
+            let s:use_grep = "vimgrep"
+        endif
+        execute s:use_grep . " /" . s:route_resource_function . "/ " .
                     \ expand("%:p:h") . "/../" . a:directory . "/**/*"
         let success=1
     catch /*/
