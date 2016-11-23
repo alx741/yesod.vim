@@ -12,9 +12,9 @@
 
 /searchThing/#id SearchR GET
 
-/some-route SomeRouteR POST
+/does/not/exists DoesNotExistsR POST
 
-/noResource/here NoResourceHere POST
+/invalid/resource/here InvalidResourceHere POST
 
 /recursive/handlers RecursiveHandlerR GET POST PUT
 

@@ -13,10 +13,9 @@ if !exists("g:yesod_disable_maps")
     let g:yesod_disable_maps = 0
 endif
 
-if !exists("g:yesod_handlers_path")
-    let g:yesod_handlers_path = "Handler"
+if !exists("g:yesod_handlers_directories")
+    let g:yesod_handlers_directories = ['Handler']
 endif
-
 
 
 command! YesodAddHandler execute "call yesod#AddHandler()"
@@ -33,29 +32,45 @@ function! yesod#OpenHandler()
         return ""
     endif
 
-    let s:route_resource_function = s:route_resource . "R *::"
+    for dir in g:yesod_handlers_directories
+        if finddir(expand("%:p:h") . "/../" . dir) !=? ""
+            if (yesod#OpenHandlerTryDir(dir, s:route_resource))
+                return ""
+            endif
+        else
+            echom dir . " does not exists in the project root!"
+            continue
+        endif
+    endfor
+
+    let s:prompt = input("The resource handler for " .
+                \ s:route_resource  .
+                \ "R does not exist. Create it? [y/N]  ")
+
+    if s:prompt ==? "y"
+        call yesod#AddHandler()
+        call yesod#OpenHandler()
+    else
+        return ""
+    endif
+endfunction
+
+function! yesod#OpenHandlerTryDir(directory, route_resource)
+    let s:route_resource_function = a:route_resource . "R *::"
 
     try
         execute "lvimgrep /" . s:route_resource_function . "/ " .
-                    \ expand("%:p:h") . "/../" . g:yesod_handlers_path . "/**/*"
+                    \ expand("%:p:h") . "/../" . a:directory . "/**/*"
         let success=1
     catch /*/
     finally
-        if !exists('success')
-            let s:prompt = input("The resource handler for " .
-                                \ s:route_resource  .
-                                \ "R does not exist. Create it? [y/N]  ")
-
-            if s:prompt ==? "y"
-                call yesod#AddHandler()
-                call yesod#OpenHandler()
-            else
-                return ""
-            endif
+        if exists('success')
+            return 1
+        else
+            return 0
         endif
     endtry
 endfunction
-
 
 function! yesod#AddHandler()
     let l:winview = winsaveview()
