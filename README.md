@@ -31,6 +31,9 @@ Map | Command | Action
 **gh** | :YesodOpenHandler | Jump to the handler of the route under the cursor
 **gH** | :YesodAddHandler | Create a new handler for the route under the cursor
 **gm** | :YesodOpenMessage | Jump to or create the i18n message under the cursor
+**ghh** | :YesodOpenHamlet | Open the current widget Hamlet file
+**ghj** | :YesodOpenJulius | Open the current widget Julius file
+**ghl** | :YesodOpenLucius | Open the current widget Lucius file
 
 
 ### Open Handler `gh`
@@ -54,6 +57,11 @@ work!
 
 Will always take you to the message for the default language.
 
+### Open Hamlet `ghh`, Julius `ghj` and Lucius `ghl` files
+
+While in a `hamlet`, `julius` or `lucius` file you can use any of those commands
+or default mappings to easily jump to the corresponding file.
+
 
 ## Configuration
 
@@ -71,6 +79,10 @@ And then add your own like:
 nnoremap <leader>H :YesodAddHandler<CR>
 nnoremap <leader>h :YesodOpenHandler<CR>
 nnoremap <leader>m :YesodOpenMessage<CR>
+
+nnoremap <leader>wh :YesodOpenHamlet<CR>
+nnoremap <leader>wj :YesodOpenJulius<CR>
+nnoremap <leader>wl :YesodOpenLucius<CR>
 ```
 
 ### Handlers
