@@ -12,6 +12,7 @@ Vim plugin for the Haskell [Yesod web framework](http://www.yesodweb.com/).
 * Jump to handler files from declared routes
 * Jump to and Create i18n messages
 * Create new handlers for routes under the cursor while in `config/routes`
+* Touch files with altered TH and Static resources dependencies
 
 **Note:** This plugin *does not* add syntax for *shakesperean templates*, there
 is another plugin that does:
@@ -35,6 +36,7 @@ Map | Command | Action
 **ghh** | :YesodOpenHamlet | Open the current widget Hamlet file
 **ghj** | :YesodOpenJulius | Open the current widget Julius file
 **ghl** | :YesodOpenLucius | Open the current widget Lucius file
+**ghT** | :YesodOpenLucius | Touch modified TH and Static resources files
 
 
 ### Open Handler `gh`
@@ -63,6 +65,12 @@ Will always take you to the message for the default language.
 While in a `hamlet`, `julius` or `lucius` file you can use any of those commands
 or default mappings to easily jump to the corresponding file.
 
+### Touch files `ghT`
+
+Whenever you add a new static file (like an image) to `static/` or modify a file
+that depends on template Haskell generation use `ghT` to touch those, so they
+are re-built.
+
 
 ## Configuration
 
@@ -84,6 +92,8 @@ nnoremap <leader>m :YesodOpenMessage<CR>
 nnoremap <leader>wh :YesodOpenHamlet<CR>
 nnoremap <leader>wj :YesodOpenJulius<CR>
 nnoremap <leader>wl :YesodOpenLucius<CR>
+
+nnoremap <leader>T :YesodTouch<CR>
 ```
 
 ### Handlers

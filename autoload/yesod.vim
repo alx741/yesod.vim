@@ -13,3 +13,8 @@ function! yesod#OpenWidgetLucius()
     exe "edit " . s:root_file . ".lucius"
 endfunction
 
+function! yesod#Touch()
+    exe "silent ! stack exec -- yesod touch"
+    exe "silent ! if [[ -f Settings.hs ]]; then touch Settings.hs; fi"
+    exe "redraw!"
+endfunction
