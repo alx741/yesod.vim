@@ -8,7 +8,7 @@ Vim plugin for the Haskell [Yesod web framework](http://www.yesodweb.com/).
 * Syntax for `config/models`
 * Syntax for `config/routes`
 * Syntax for i18n `messages/`
-* Jump between widget `Hamlet`, `Julius` and `Lucius` files
+* Jump between widget `Hamlet`, `Julius`, `Lucius` and `Cassius` files
 * Jump to handler files from declared routes
 * Jump to and Create i18n messages
 * Create new handlers for routes under the cursor while in `config/routes`
@@ -36,7 +36,8 @@ Map | Command | Action
 **ghh** | :YesodOpenHamlet | Open the current widget Hamlet file
 **ghj** | :YesodOpenJulius | Open the current widget Julius file
 **ghl** | :YesodOpenLucius | Open the current widget Lucius file
-**ghT** | :YesodOpenLucius | Touch modified TH and Static resources files
+**ghc** | :YesodOpenCassius | Open the current widget Cassius file
+**ghT** | :YesodOpenTouch | Touch modified TH and Static resources files
 
 
 ### Open Handler `gh`
@@ -60,10 +61,10 @@ work!
 
 Will always take you to the message for the default language.
 
-### Open Hamlet `ghh`, Julius `ghj` and Lucius `ghl` files
+### Open Hamlet `ghh`, Julius `ghj`, Lucius `ghl` and Cassius `ghc` files
 
-While in a `hamlet`, `julius` or `lucius` file you can use any of those commands
-or default mappings to easily jump to the corresponding file.
+While in a `hamlet`, `julius`, `lucius` or `cassius` file you can use any of
+those commands or default mappings to easily jump to the corresponding file.
 
 ### Touch files `ghT`
 
@@ -92,6 +93,7 @@ nnoremap <leader>m :YesodOpenMessage<CR>
 nnoremap <leader>wh :YesodOpenHamlet<CR>
 nnoremap <leader>wj :YesodOpenJulius<CR>
 nnoremap <leader>wl :YesodOpenLucius<CR>
+nnoremap <leader>wc :YesodOpenCassius<CR>
 
 nnoremap <leader>T :YesodTouch<CR>
 ```

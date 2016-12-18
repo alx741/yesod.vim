@@ -13,6 +13,11 @@ function! yesod#OpenWidgetLucius()
     exe "edit " . s:root_file . ".lucius"
 endfunction
 
+function! yesod#OpenWidgetCassius()
+    let s:root_file = expand('%:r')
+    exe "edit " . s:root_file . ".cassius"
+endfunction
+
 function! yesod#Touch()
     exe "silent ! stack exec -- yesod touch"
     exe "silent ! if [[ -f Settings.hs ]]; then touch Settings.hs; fi"
