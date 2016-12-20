@@ -37,7 +37,7 @@ Map | Command | Action
 **ghj** | :YesodOpenJulius | Open the current widget Julius file
 **ghl** | :YesodOpenLucius | Open the current widget Lucius file
 **ghc** | :YesodOpenCassius | Open the current widget Cassius file
-**ghT** | :YesodOpenTouch | Touch modified TH and Static resources files
+**ghT** | :YesodTouch | Touch modified TH and Static resources files
 
 
 ### Open Handler `gh`
