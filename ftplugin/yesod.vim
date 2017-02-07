@@ -79,9 +79,8 @@ endfunction
 function! yesod#AddHandler()
     let l:winview = winsaveview()
 
-    if !executable("yesod")
-        echomsg "Yesod executable not found in $PATH, did you installed it?
-                    \ (stack install yesod-bin)"
+    if !executable("stack")
+        echomsg "Stack executable not found in $PATH, did you installed it?"
         return
     endif
 
@@ -135,7 +134,7 @@ function! yesod#GetYesodCommand()
 
 
     " Compose yesod command
-    let s:yesod_cmd = "yesod add-handler -p '" . s:route_pattern . "'"
+    let s:yesod_cmd = "stack exec -- yesod add-handler -p '" . s:route_pattern . "'"
                                     \ . " -r '" . s:route_resource . "'"
 
     if s:route_have_get != -1
