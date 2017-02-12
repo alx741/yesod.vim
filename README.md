@@ -59,7 +59,7 @@ work!
 
 ### Open i18n Message `gm`
 
-Will always take you to the message for the default language.
+It will always take you to the message for the default language.
 
 ### Open Hamlet `ghh`, Julius `ghj`, Lucius `ghl` and Cassius `ghc` files
 

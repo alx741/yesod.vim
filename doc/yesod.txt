@@ -6,12 +6,151 @@ CONTENTS                                                      *yesod-contents*
     1. Intro........................................|yesod-intro|
     2. Usage........................................|yesod-usage|
       2.1. Open Handler.............................|yesod-open-handler|
-      2.2. Create Handler...........................|yesod-create-handler|
+      2.2. Create Handler...........................|yesod-add-handler|
       2.3. Open i18n Message........................|yesod-open-message|
       2.4. Open Shakesperean........................|yesod-shakesperean|
       2.5. Touch Files..............................|yesod-touch|
     3. Configuration................................|yesod-config|
-      3.1. Mappings..............................|yesod-touch|
-      3.2. Handlers..............................|yesod-touch|
-      3.2. i18n Messages..............................|yesod-touch|
+      3.1. Mappings.................................|yesod-config-mappings|
+      3.2. Handlers.................................|yesod-config-handlers|
+      3.2. i18n Messages............................|yesod-config-messages|
     4. Credits......................................|yesod-credits|
+
+==============================================================================
+INTRO                                                            *yesod-intro*
+
+*yesod.vim* is a helper plugin for the Yesod web framework
+(http://www.yesodweb.com/). It provides:
+
+* Syntax for `config/models`
+* Syntax for `config/routes`
+* Syntax for i18n `messages/`
+* Jump between widget `Hamlet`, `Julius`, `Lucius` and `Cassius` files
+* Jump to handler files from declared routes
+* Jump to and Create i18n messages
+* Create new handlers for routes under the cursor while in `config/routes`
+* Touch files with altered TH and Static resources dependencies
+
+**Note:** This plugin *does not* add syntax for *shakesperean templates*, there
+is another plugin that does: vim-syntax-shakespeare
+(https://github.com/pbrisbin/vim-syntax-shakespeare).
+
+==============================================================================
+USAGE                                                            *yesod-usage*
+
+*yesod.vim* provides some functions and default mappings:
+
+                               *yesod-open-handler*  *:yesodOpenHandler*  *gh*
+  :YesodOpenHandler       Jump to the handler of the route under the cursor.
+                          Will jump to the first handler found and fill the
+                          location list with each http method available for that
+                          handler, so you can jump between them with `:lnext`
+                          and `:lprev`.
+
+                          *Note*: If your using a `Vim version <= 7.4.1800`, the
+                          quickfix list will be used instead (because of a nasty
+                          bug in Vim before that version), in which case you use
+                          `:cnext` and `:cprev`.
+
+
+                                 *yesod-add-handler*  *:YesodAddHandler*  *gH*
+  :YesodAddHandler        Create a new handler for the route under the cursor.
+                          This will use `yesod-bin` so be sure you have it
+                          installed.
+
+                          If your project directory structure is not the
+                          scaffolding default, this may not work!
+
+
+
+                                 *yesod-open-message*  *:YesodOpenMessage* *gm*
+  :YesodOpenMessage       Jump to or create the i18n message under the cursor.
+                          It will always take you to the message for the default
+                          language.
+
+
+                                                          *yesod-shakesperean*
+                                                      *:YesodOpenHamlet* *ghh*
+  :YesodOpenHamlet        Open the current widget Hamlet file.
+
+                                                      *:YesodOpenJulius* *ghj*
+  :YesodOpenJulius        Open the current widget Julius file.
+
+                                                      *:YesodOpenLucius* *ghl*
+  :YesodOpenLucius        Open the current widget Lucius file.
+
+                                                     *:YesodOpenCassius* *ghc*
+  :YesodOpenCassius       Open the current widget Cassius file.
+
+
+
+                                            *yesod-touch*  *:YesodTouch* *ghT*
+  :YesodTouch             Touch modified TH and Static resources files.
+                          Whenever you add a new static file (like an image) to
+                          `static/` or modify a file that depends on template
+                          Haskell generation use *ghT* to touch those, so they
+                          are re-built.
+
+
+==============================================================================
+CONFIGURATION                                                  *yesod-config*
+
+
+Mappings                                              *yesod-config-mappings*
+--------
+
+You can disable the predefined mappings with:
+
+  let g:yesod_disable_maps = 1
+
+And then add your own like:
+
+  nnoremap <leader>H :YesodAddHandler<CR>
+  nnoremap <leader>h :YesodOpenHandler<CR>
+  nnoremap <leader>m :YesodOpenMessage<CR>
+
+  nnoremap <leader>wh :YesodOpenHamlet<CR>
+  nnoremap <leader>wj :YesodOpenJulius<CR>
+  nnoremap <leader>wl :YesodOpenLucius<CR>
+  nnoremap <leader>wc :YesodOpenCassius<CR>
+
+  nnoremap <leader>T :YesodTouch<CR>
+
+
+
+
+Handlers                                              *yesod-config-handlers*
+--------
+
+The Yesod default location for handlers is `Handler` in the project root. If you
+keep your handlers in more than one directory, lets say for instance:
+`src/` and `moreHandlers/`, you can configure it like:
+
+  let g:yesod_handlers_directories = ['Handler', 'src', 'moreHandlers']
+
+The Handlers directories you define will be searched recursively.
+
+
+
+
+i18n Messages                                        *yesod-config-messages*
+-------------
+
+Default i18n language to use:
+
+  let g:yesod_messages_default_lang = "en"
+
+Messages directory:
+
+  let g:yesod_messages_path = "messages"
+
+
+==============================================================================
+CREDITS                                                         *spec-credits*
+
+Developed by Daniel Campoverde [alx741] <github.com/alx741>.
+
+Git repository:       https://github.com/alx741/vim-yesod
+
+==============================================================================
+vim:ft=help:et:ts=2:sw=2:sts=2:norl
