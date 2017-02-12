@@ -1,4 +1,4 @@
-# Vim - Yesod
+# Yesod.vim
 
 Vim plugin for the Haskell [Yesod web framework](http://www.yesodweb.com/).
 
@@ -26,7 +26,7 @@ Compatible with `Vundle`, `Pathogen`, `Vim-plug`.
 
 ## Usage
 
-*vim-yesod* gives you some predefined mappings:
+*yesod.vim* gives you some predefined mappings:
 
 Map | Command | Action
 --- | ------- | ------

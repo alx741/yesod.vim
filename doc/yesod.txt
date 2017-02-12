@@ -1,5 +1,5 @@
-*yesod.txt*       Yesod Web Framework helper plugin
-*Yesod* *yesod* *Yesod.vim* *yesod.vim* *yesodvim*
+*yesod.vim*                 Yesod Web Framework helper plugin
+*Yesod* *yesod* *Yesod.vim* *yesod.txt* *yesodvim*
 ==============================================================================
 CONTENTS                                                      *yesod-contents*
 
@@ -70,6 +70,7 @@ USAGE                                                            *yesod-usage*
 
 
                                                           *yesod-shakesperean*
+
                                                       *:YesodOpenHamlet* *ghh*
   :YesodOpenHamlet        Open the current widget Hamlet file.
 
@@ -150,7 +151,7 @@ CREDITS                                                         *spec-credits*
 
 Developed by Daniel Campoverde [alx741] <github.com/alx741>.
 
-Git repository:       https://github.com/alx741/vim-yesod
+Git repository:       https://github.com/alx741/yesod.vim
 
 ==============================================================================
 vim:ft=help:et:ts=2:sw=2:sts=2:norl
