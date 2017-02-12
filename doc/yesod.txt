@@ -1,0 +1,17 @@
+*yesod.txt*       Yesod Web Framework helper plugin
+*Yesod* *yesod* *Yesod.vim* *yesod.vim* *yesodvim*
+==============================================================================
+CONTENTS                                                      *yesod-contents*
+
+    1. Intro........................................|yesod-intro|
+    2. Usage........................................|yesod-usage|
+      2.1. Open Handler.............................|yesod-open-handler|
+      2.2. Create Handler...........................|yesod-create-handler|
+      2.3. Open i18n Message........................|yesod-open-message|
+      2.4. Open Shakesperean........................|yesod-shakesperean|
+      2.5. Touch Files..............................|yesod-touch|
+    3. Configuration................................|yesod-config|
+      3.1. Mappings..............................|yesod-touch|
+      3.2. Handlers..............................|yesod-touch|
+      3.2. i18n Messages..............................|yesod-touch|
+    4. Credits......................................|yesod-credits|
