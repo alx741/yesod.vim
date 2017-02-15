@@ -10,6 +10,8 @@ CONTENTS                                                      *yesod-contents*
       2.3. Open i18n Message........................|yesod-open-message|
       2.4. Open Shakesperean........................|yesod-shakesperean|
       2.5. Touch Files..............................|yesod-touch|
+      2.6. Open Models..............................|yesod-models|
+      2.7. Open Routes..............................|yesod-routes|
     3. Configuration................................|yesod-config|
       3.1. Mappings.................................|yesod-config-mappings|
       3.2. Handlers.................................|yesod-config-handlers|
@@ -28,6 +30,7 @@ INTRO                                                            *yesod-intro*
 * Jump between widget `Hamlet`, `Julius`, `Lucius` and `Cassius` files
 * Jump to handler files from declared routes
 * Jump to and Create i18n messages
+* Jump to `routes` and `models` files
 * Create new handlers for routes under the cursor while in `config/routes`
 * Touch files with altered TH and Static resources dependencies
 
@@ -85,12 +88,20 @@ USAGE                                                            *yesod-usage*
 
 
 
-                                            *yesod-touch*  *:YesodTouch* *ghT*
+                                               *yesod-touch*  *:YesodTouch* *ghT*
   :YesodTouch             Touch modified TH and Static resources files.
                           Whenever you add a new static file (like an image) to
                           `static/` or modify a file that depends on template
                           Haskell generation use *ghT* to touch those, so they
                           are re-built.
+
+
+
+                                         *yesod-models*  *:YesodOpenModels* *gym*
+  :YesodOpenModels        Open the scaffolding models file.
+
+                                         *yesod-routes*  *:YesodOpenRoutes* *gyr*
+  :YesodOpenRoutes        Open the scaffolding routes file.
 
 
 ==============================================================================
@@ -116,6 +127,9 @@ And then add your own like:
   nnoremap <leader>wc :YesodOpenCassius<CR>
 
   nnoremap <leader>T :YesodTouch<CR>
+
+  nnoremap <leader>M :YesodOpenModels<CR>
+  nnoremap <leader>R :YesodOpenRoutes<CR>
 
 
 

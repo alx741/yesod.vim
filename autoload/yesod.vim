@@ -23,3 +23,11 @@ function! yesod#Touch()
     exe "silent ! if [[ -f Settings.hs ]]; then touch Settings.hs; fi"
     exe "redraw!"
 endfunction
+
+function! yesod#openModels()
+    exe "edit config/models"
+endfunction
+
+function! yesod#openRoutes()
+    exe "edit config/routes"
+endfunction

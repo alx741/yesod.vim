@@ -11,6 +11,7 @@ Vim plugin for the Haskell [Yesod web framework](http://www.yesodweb.com/).
 * Jump between widget `Hamlet`, `Julius`, `Lucius` and `Cassius` files
 * Jump to handler files from declared routes
 * Jump to and Create i18n messages
+* Jump to `routes` and `models` files
 * Create new handlers for routes under the cursor while in `config/routes`
 * Touch files with altered TH and Static resources dependencies
 
@@ -38,6 +39,8 @@ Map | Command | Action
 **ghl** | :YesodOpenLucius | Open the current widget Lucius file
 **ghc** | :YesodOpenCassius | Open the current widget Cassius file
 **ghT** | :YesodTouch | Touch modified TH and Static resources files
+**gym** | :YesodOpenModels | Open models file
+**gyr** | :YesodOpenRoutes | Open routes file
 
 
 ### Open Handler `gh`
@@ -96,6 +99,9 @@ nnoremap <leader>wl :YesodOpenLucius<CR>
 nnoremap <leader>wc :YesodOpenCassius<CR>
 
 nnoremap <leader>T :YesodTouch<CR>
+
+nnoremap <leader>M :YesodOpenModels<CR>
+nnoremap <leader>R :YesodOpenRoutes<CR>
 ```
 
 ### Handlers

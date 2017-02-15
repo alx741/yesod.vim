@@ -3,6 +3,8 @@ command! YesodOpenJulius call yesod#OpenWidgetJulius()
 command! YesodOpenLucius call yesod#OpenWidgetLucius()
 command! YesodOpenCassius call yesod#OpenWidgetCassius()
 command! YesodTouch call yesod#Touch()
+command! YesodOpenModels call yesod#openModels()
+command! YesodOpenRoutes call yesod#openRoutes()
 
 
 if !exists("g:yesod_disable_maps")
@@ -17,5 +19,7 @@ if exists("g:yesod_disable_maps") && g:yesod_disable_maps == 0
         au FileType hamlet,julius,lucius,cassius nnoremap ghl :YesodOpenLucius<CR>
         au FileType hamlet,julius,lucius,cassius nnoremap ghc :YesodOpenCassius<CR>
         au FileType haskell,yesod,hamlet,julius,lucius,cassius nnoremap ghT :YesodTouch<CR>
+        au FileType haskell,yesod,hamlet,julius,lucius,cassius nnoremap gym :YesodOpenModels<CR>
+        au FileType haskell,yesod,hamlet,julius,lucius,cassius nnoremap gyr :YesodOpenRoutes<CR>
     augroup END
 endif
