@@ -20,7 +20,7 @@ syn match yesodRoutesResource "\C\v[A-Z]{1}.*R "
 syn keyword yesodModelsKeywords json deriving
 syn keyword yesodModelsTypes Text ByteString Int64 Double Rational Bool Day
 syn keyword yesodModelsTypes TimeOfDay UTCTime Maybe Int Integer String Textarea
-syn keyword yesodModelsTypes Typeable Eq Show
+syn keyword yesodModelsTypes Typeable Generic Eq Show Read Enum
 syn match yesodModelsTypes "\C\v[A-Z]+[a-zA-Z]*Id"
 syn match yesodModelsEntity "\C\v^[A-Z]\S*"
 syn match yesodModelsField "\C\v^\s+\zs[a-z][a-zA-Z]\S*\ze"
