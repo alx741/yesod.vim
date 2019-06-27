@@ -25,7 +25,7 @@ function! yesod#Touch()
 endfunction
 
 function! yesod#openModels()
-    exe "edit config/models"
+    exe "edit config/models*"
 endfunction
 
 function! yesod#openRoutes()
