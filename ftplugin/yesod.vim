@@ -25,7 +25,7 @@ setlocal commentstring=--\ %s
 
 function! yesod#OpenHandler()
     let s:route_line = getline('.')
-    let s:route_resource = matchstr(s:route_line, '\C\zs[A-Z]\{1\}[a-zA-Z0-9]*\zeR ')
+    let s:route_resource = matchstr(s:route_line, '\C\zs[A-Z]\{1\}[a-zA-Z0-9]*\zeR\>')
 
     if empty(s:route_resource)
         echom "There is no valid handler here!"
@@ -112,7 +112,7 @@ function! yesod#GetYesodCommand()
 
     " Match pattern and route identifier
     let s:route_pattern = matchstr(s:route_line, '\C^\/[a-zA-Z0-9#*+/.-]*')
-    let s:route_resource = matchstr(s:route_line, '\C\zs[A-Z]\{1\}[a-zA-Z0-9]*\zeR ')
+    let s:route_resource = matchstr(s:route_line, '\C\zs[A-Z]\{1\}[a-zA-Z0-9]*\zeR\>')
 
     if empty(s:route_pattern) || empty(s:route_resource)
         echom "There is no route here!"
