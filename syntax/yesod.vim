@@ -14,7 +14,7 @@ endif
 " Routes
 syn keyword yesodRoutesMethod GET POST PUT DELETE
 syn match yesodRoutesRoute "\C\v\/[A-Za-z0-9#*+/.-]*"
-syn match yesodRoutesResource "\C\v[A-Z]{1}.*R "
+syn match yesodRoutesResource "\C\v[A-Z]{1}.*R\V\>"
 
 " Models
 syn keyword yesodModelsKeywords json deriving
