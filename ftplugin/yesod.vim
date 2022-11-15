@@ -21,6 +21,7 @@ endif
 command! YesodAddHandler execute "call yesod#AddHandler()"
 command! YesodOpenHandler execute "call yesod#OpenHandler()"
 setlocal commentstring=--\ %s
+setlocal! comments=:--
 
 
 function! yesod#OpenHandler()
