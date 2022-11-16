@@ -21,7 +21,7 @@ CONTENTS                                                      *yesod-contents*
 ==============================================================================
 INTRO                                                            *yesod-intro*
 
-*yesod.vim* is a helper plugin for the Yesod web framework
+yesod.vim is a helper plugin for the Yesod web framework
 (http://www.yesodweb.com/). It provides:
 
 * Syntax for `config/models`
@@ -41,7 +41,7 @@ is another plugin that does: vim-syntax-shakespeare
 ==============================================================================
 USAGE                                                            *yesod-usage*
 
-*yesod.vim* provides some functions and default mappings:
+yesod.vim provides some functions and default mappings:
 
                                *yesod-open-handler*  *:yesodOpenHandler*  *gh*
   :YesodOpenHandler       Jump to the handler of the route under the cursor.
@@ -92,7 +92,7 @@ USAGE                                                            *yesod-usage*
   :YesodTouch             Touch modified TH and Static resources files.
                           Whenever you add a new static file (like an image) to
                           `static/` or modify a file that depends on template
-                          Haskell generation use *ghT* to touch those, so they
+                          Haskell generation use ghT to touch those, so they
                           are re-built.
 
 
